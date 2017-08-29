@@ -1,3 +1,4 @@
+@import url(https://fonts.googleapis.com/css?family=Poppins);
 
 body{
 	background-color: #c2cece;
@@ -6,79 +7,154 @@ body{
 	font-family: 'Poppins', sans-serif;
 }
 
- #small-top-bar{
- 	position: absolute;
- 	height: 20px;
- 	top: 0px;
- 	left: 0px;
- 	width: 100%;
- 	background: url('../images/colours.png');
- 	background-size: 900px 100%;
- }
 
-.top-bar{
-	width: 100%; /* Full width */
-	height: 60px;
-	padding: 0px 20px;
-	background-color: #55585d; /* Dim grey background*/
-	margin: 20px 0 0 0;
-	padding: 0;
-	text-align: center;
-	list-style: none;
-	float: left;
+.container{
+	width: 95%;
+	max-width: 1000px;
+	margin: 0 auto;
 }
 
-.top-bar h1.logo{
-	color: #ffffff;
-	text-transform: uppercase;
-	float: left;
+header {
+	background:#55595d;
+	color:#ffffff;
+	padding: 1em 0;
+	position: relative;
 }
 
-.top-bar ul{
-	list-style: none;
-	text-align: center;
-	padding: 0;
-	margin: 0;
-	float: center;
-}
-
-.top-bar ul li{
-	display: inline-block;
-}
-
-.top-bar a{
-	float: left; /*Float links side by side*/
-	text-align: center; /*Center align text */
-	transition: all 0.3s ease; /*Add Transition for hover effect*/
-	color: white; /*Text colour*/
-	font-size: 36px; /* Size of the font*/
+header::after{
+	content: '';
+	clear: both;
 	display: block;
+}
+
+.logo{
+	float: left;
+	font-size: 2rem;
+	margin: 0;
+	font-weight: 700;
 	text-transform: uppercase;
-	padding: 10px;
 }
 
-.top-bar a:hover{
-	background-color: #000;
+.logo span{
+	font-weight: 300;
 }
 
-.top-bar h1.settings{
-	background-color: #4d5256;
-	float: right;
+.site-nav{
+	position: absolute;
+	background-color: #707982;
+	top: 100%;
+	right: 0%;
+	overflow: hidden;
+	height: 0px;
+	overflow: hidden;
 }
 
-.active {
-	background-color: #E1332D;
+.site-nav--open{
+	height: auto;
 }
 
-/*********** Projects ***********/
+.site-nav ul{
+	margin: 0;
+	padding 0;
+	list-style: none;
+}
 
-.project{
-	padding: 10px;
-	margin: 2%;
-	text-align: center;
-	width: 220px;
-	height: 90px;
-	border: solid black;
-	color: white;
-	background-color: black;
+.site-nav li{
+	border-bottom: 1px solid #767e88;
+}
+
+.site-nav li:last-child{
+	border-bottom: none;
+}
+
+.site-nav a{
+	color: #ffffff;
+	text-decoration: none;
+	display: block;
+	padding: 2em 6em;
+	text-transform: uppercase;
+}
+
+.site-nav a:hover, .site-nav:focus{
+	color: #55595d;
+}
+
+.site-nav--icon{
+	display: inline-block;
+	font-size: 2em;
+	margin-right: 1em;
+	text-align: right;
+	width: 1.1em;
+	color: rgba(255,255,255,.35);
+}
+
+.menu-toggle{
+	/*background-color: #4d5256;*/
+	padding: 1em ;
+	position: absolute;
+	right: 1.5em;
+	top: 1.5em;
+	cursor: pointer;
+	display: inline-grid;
+}
+
+.hamburger, .hamburger::before, .hamburger::after {
+	content: '';
+	display: block;
+	background: #767e88;
+	height: 2px;
+	width: 1.75em;
+	transition: all ease-in-out 500ms;
+}
+
+.hamburger::before{
+	transform: translateY(-8px);
+}
+
+.hamburger::after{
+	transform: translateY(6px);
+}
+
+.hamburguer:hover{
+	background: #ffffff;
+}
+
+.open .hamburger{
+	transform: rotate(45deg);
+}
+
+.open .hamburger::before{
+	opacity: 0;
+}
+
+.open .hamburger::after{
+	transform: translateY(-2px) rotate(-90deg);
+}
+
+@media (min-width: 700px) {
+	.menu-toggle{
+		display: none;
+	}
+	.site-nav {
+		top: 1em;
+		height: auto;
+		position: relative;
+		background:transparent;
+		float: right;
+	}
+	.site-nav li {
+		display: inline-block;
+		border: none;
+	}
+	.site-nav a{
+		padding: 0;
+		margin-left: 3em;
+	}
+	.site-nav a:hover, .site-nav a:focus{
+		background: transparent;
+		color: #848f9b;
+	}
+	.site-nav--icon{
+		display: none !important;
+	}
 }
